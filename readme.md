@@ -16,6 +16,7 @@ The tests are structured for clarity, maintainability, and real-world usage.
 
 ---
 ## 📂 Project Structure
+
 project_e2e/
 ├── Api/ # API request layer
 │ └── objects.py
@@ -27,6 +28,7 @@ project_e2e/
 ├── pytest.ini # Marker declarations
 ├── requirements.txt # Dependencies
 └── .gitignore
+
 
 
 ---
@@ -75,4 +77,5 @@ pytest --html=report.html --self-contained-html
 - Tests are written to be clear, maintainable, and easy to extend.
 
 - Created by Srikar N
+
 GitHub – https://github.com/srikar-N

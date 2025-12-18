@@ -38,3 +38,24 @@ def delete_data(obj_id):
     """
     delete_response = requests.delete(End_point+"/"+obj_id)
     return delete_response
+
+def bulk_get():
+    """
+    Send a GET request to the API endpoint to retrieve all objects.
+    """
+    response = requests.get(End_point)
+    return response
+
+def get_data_by_ids(*args):
+    """
+    Send a GET request to the API endpoint with the given object IDs.
+    """
+    if len(args) == 1:
+        resource = End_point+f"?id={args[0]}"
+    else:
+        resource = End_point + f"?id={args[0]}"
+        for id in range(1,len(args)):
+            resource = resource+"&id="+args[id]
+
+    response = requests.get(resource)
+    return response

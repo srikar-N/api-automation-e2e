@@ -14,3 +14,13 @@ def create_payload():
             "Hard disk size": "1 TB"
         }
     }
+
+
+def create_empty_payload():
+    """
+    Create an empty data payload.
+    """
+    return {
+        "name": "Apple MacBook Pro",
+        "data": {}
+    }

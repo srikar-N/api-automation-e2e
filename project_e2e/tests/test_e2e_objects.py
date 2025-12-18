@@ -4,11 +4,11 @@ from project_e2e.Api.objects import get_data, full_update, partial_update, delet
 from project_e2e.utils.payload import create_payload
 
 @pytest.mark.e2e
-def test_e2e(created_object):
+def test_e2e(create_object):
     """
     Test the end-to-end flow for creating, updating, partial updating, deleting, and failure response.
     """
-    object_id,payload = created_object
+    object_id,payload = create_object
 
     # initial payload validation
     get_response = get_data(object_id)

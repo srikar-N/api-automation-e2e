@@ -71,6 +71,9 @@ def send_invalid_json(payload):
     return response
 
 def full_update_with_header(object_id,payload):
+    """
+    Update request with header.
+    """
     header = {
         "Content-Type": "text/plain"
     }

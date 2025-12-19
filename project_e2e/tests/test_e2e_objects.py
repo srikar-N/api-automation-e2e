@@ -3,12 +3,13 @@ import pytest
 from project_e2e.Api.objects import get_data, full_update, partial_update, delete_data
 from project_e2e.utils.payload import create_payload
 
+
 @pytest.mark.e2e
 def test_e2e(create_object):
     """
     Test the end-to-end flow for creating, updating, partial updating, deleting, and failure response.
     """
-    object_id,payload = create_object
+    object_id, payload = create_object
 
     # initial payload validation
     get_response = get_data(object_id)
@@ -18,7 +19,7 @@ def test_e2e(create_object):
 
     # updating the payload and validating
     new_payload = create_payload()
-    update_response = full_update(object_id,new_payload)
+    update_response = full_update(object_id, new_payload)
     assert update_response.status_code == 200
     assert "updatedAt" in update_response.json()
     get_updated_response = get_data(object_id)
@@ -32,7 +33,7 @@ def test_e2e(create_object):
             "price": 1500.00
         }
     }
-    patch_response = partial_update(object_id,patched_payload)
+    patch_response = partial_update(object_id, patched_payload)
     assert patch_response.status_code == 200
     assert "updatedAt" in patch_response.json()
 
@@ -49,7 +50,3 @@ def test_e2e(create_object):
     # failure response validation
     failure_response = get_data(object_id)
     assert failure_response.status_code == 404
-
-
-
-

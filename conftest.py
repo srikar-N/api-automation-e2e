@@ -11,7 +11,7 @@ def create_object():
     payload = create_payload()
     data = send_data(payload)
     assert data.status_code == 200
-    yield data.json()["id"],payload
+    yield data.json()["id"], payload
     delete_data(data.json()["id"])
 
 
@@ -26,17 +26,19 @@ def create_two_objects():
     assert data_1.status_code == 200
     data_2 = send_data(payload_2)
     assert data_2.status_code == 200
-    yield data_1.json()["id"],data_2.json()["id"]
+    yield data_1.json()["id"], data_2.json()["id"]
     delete_data(data_1.json()["id"])
     delete_data(data_2.json()["id"])
+
 
 @pytest.fixture
 def create_empty_object():
     payload = create_empty_payload()
     data = send_data(payload)
     assert data.status_code == 200
-    yield data.json()["id"],payload
+    yield data.json()["id"], payload
     delete_data(data.json()["id"])
+
 
 @pytest.fixture
 def send_post_response():

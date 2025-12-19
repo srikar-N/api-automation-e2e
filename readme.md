@@ -1,5 +1,3 @@
-# API Automation – E2E Pytest Framework
-
 # API Automation – End-to-End Pytest Framework
 
 This repository demonstrates a complete **end-to-end API automation test suite** built using **Python**, **Requests**, and **Pytest**.

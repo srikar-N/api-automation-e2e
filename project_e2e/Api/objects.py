@@ -54,8 +54,19 @@ def get_data_by_ids(*args):
         resource = End_point+f"?id={args[0]}"
     else:
         resource = End_point + f"?id={args[0]}"
-        for id in range(1,len(args)):
-            resource = resource+"&id="+args[id]
+        for obj_id in range(1,len(args)):
+            resource = resource+"&id="+args[obj_id]
 
     response = requests.get(resource)
     return response
+
+def send_invalid_json(payload):
+    """
+    Send a POST request to the API endpoint with an invalid JSON payload.
+    """
+    response = requests.post(End_point, data=payload)
+    return response
+
+def full_update_with_header(object_id,header,payload):
+    update_response = requests.put(End_point +"/"+object_id, headers=header, data=payload)
+    return update_response

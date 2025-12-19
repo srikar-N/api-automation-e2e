@@ -64,9 +64,15 @@ def send_invalid_json(payload):
     """
     Send a POST request to the API endpoint with an invalid JSON payload.
     """
-    response = requests.post(End_point, data=payload)
+    header = {
+        "Content-Type": "application/json"
+    }
+    response = requests.post(End_point, data=payload,headers=header)
     return response
 
-def full_update_with_header(object_id,header,payload):
+def full_update_with_header(object_id,payload):
+    header = {
+        "Content-Type": "text/plain"
+    }
     update_response = requests.put(End_point +"/"+object_id, headers=header, data=payload)
     return update_response

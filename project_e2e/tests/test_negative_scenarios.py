@@ -47,10 +47,7 @@ def test_non_existent_partial_update():
 
 def test_invalid_content_type():
     rand_id = random.randint(1,10) # we know that server already has id's from 1 to 10
-    header = {
-        "Content-Type": "text/plain"
-    }
-    put_response = full_update_with_header(str(rand_id),header,create_payload())
+    put_response = full_update_with_header(str(rand_id),create_payload())
     assert put_response.status_code in range(400,500)
     assert "error" in put_response.json()
 

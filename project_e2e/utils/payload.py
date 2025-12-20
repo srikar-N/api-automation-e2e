@@ -11,7 +11,8 @@ def create_payload():
             "year": random.randint(2015, 2024),
             "price": 1849.99,
             "CPU model": "Intel Core i9",
-            "Hard disk size": "1 TB"
+            "Hard disk size": "1 TB",
+            "Is Available": True
         }
     }
 

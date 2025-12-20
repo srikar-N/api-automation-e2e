@@ -6,7 +6,7 @@ from project_e2e.utils.payload import create_payload, create_empty_payload
 @pytest.fixture
 def create_object():
     """
-    Create a new object and yield its ID and payload.
+    Create a new object and yield its ID and payload and deletes the object after test is done
     """
     payload = create_payload()
     data = send_data(payload)
@@ -18,7 +18,7 @@ def create_object():
 @pytest.fixture
 def create_two_objects():
     """
-    Create two new objects and yield their IDs
+    Create two new objects and yield their IDs and deletes the objects after test is done
     """
     payload_1 = create_payload()
     payload_2 = create_payload()
@@ -33,6 +33,9 @@ def create_two_objects():
 
 @pytest.fixture
 def create_empty_object():
+    """
+    Sends a POST request with empty payload and deletes the object after test is done
+    """
     payload = create_empty_payload()
     data = send_data(payload)
     assert data.status_code == 200
@@ -42,6 +45,9 @@ def create_empty_object():
 
 @pytest.fixture
 def send_post_response():
+    """
+    Sends a post request and Yields response and deletes the object after test is done
+    """
     payload = create_payload()
     data = send_data(payload)
     assert data.status_code == 200
